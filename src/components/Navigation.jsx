@@ -51,22 +51,19 @@ export const Navigation = () => {
 
   return (
     <nav>
-      <div className="navHeader">
-        {elephantIcon}
         <div className="navLabel" style={{lineHeight: 2.2}}></div>
-      </div>
       <Link to="/">
         {homeIcon}
         <div className="navLabel" style={{ fontWeight: isHome ? 700 : 400 }}>Home</div>
       </Link>
       <Link to="/topics">
         {topicsIcon}
-        <div className="navLabel" style={{ fontWeight: isTopics ? 700 : 400 }}>Topics</div>
+        <div className="navLabel" style={{ fontWeight: isTopics ? 700 : 400 }}>Tags</div>
       </Link>
-      <Link to="/users">
+      {/* <Link to="/users">
         {usersIcon}
         <div className="navLabel" style={{ fontWeight: isUsers ? 700 : 400 }}>Users</div>
-      </Link>
+      </Link> */}
     </nav>
   );
 };

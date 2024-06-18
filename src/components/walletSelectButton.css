@@ -1,35 +1,33 @@
-
 .walletButton {
-	background-color: transparent;
+  background-color: rgb(29, 161, 242);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
-  font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   height: 48px;
   line-height: 48px;
   padding: 0 24px;
-	border-radius: 9999px;
-	border: solid 1px var(--color-text);
-	padding: 0 24px;
-	color: rgb(236, 233, 230);
-	margin-top: 1rem;
-	justify-content: center !important;
+  border-radius: 9999px;
+  color: rgb(255, 255, 255);
+  margin: 1rem;
+  justify-content: center !important;
+  transition: background-color 0.2s;
 }
 
 .walletButton:hover {
-	background-color: rgb(39, 50, 62);
+  background-color: rgb(26, 145, 218);
 }
 
 .walletButton p {
-	margin-left: 12px;
+  margin-left: 12px;
 }
 
 .walletButton img {
-	width: 24px;
-	height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .modal {
@@ -45,12 +43,12 @@
 }
 
 .scrim {
-	background: rgba(40, 44, 52, 0.8);
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .container {
@@ -62,23 +60,23 @@
 }
 
 .popup {
-	box-sizing: border-box;
-	border-radius: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   z-index: 1050;
   max-width: 400px;
-  background: rgb(67, 82, 99);
-  color: var(--color-text);
-  box-shadow:  0 25px 25px rgb(0 0 0 / 0.15);
-  font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: rgb(255, 255, 255);
+  color: rgb(15, 20, 25);
+  box-shadow: 0 25px 25px rgb(0 0 0 / 0.15);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   flex: 1;
 }
 
 .title {
-	font-weight: 500;
+  font-weight: 500;
   font-size: 24px;
   line-height: 36px;
   margin: 0;
@@ -87,75 +85,76 @@
 }
 
 .buttonList {
-	margin: 0 0 12px 0;
+  margin: 0 0 12px 0;
   padding: 0;
   width: 100%;
   list-style: none;
 }
 
 .select-button {
-	font-weight: 400;
+  font-weight: 400;
   border-radius: 0;
   font-size: 18px;
   justify-content: space-between;
-	width: 100%;
-	background-color: transparent;
-	color: var(--color-text);
+  width: 100%;
+  background-color: transparent;
+  color: rgb(15, 20, 25);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
-  font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   height: 48px;
   line-height: 48px;
   padding: 0 24px;
+  transition: background-color 0.2s;
 }
 
 .select-button:hover {
-	background-color: rgb(79, 101, 126);
+  background-color: rgb(230, 236, 240);
 }
 
 .select-button p {
-	font-weight: 400;
-	font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .select-button img {
-	width: 28px;
+  width: 28px;
   height: 28px;
 }
 
 .invert {
-	filter: invert(99%) sepia(70%) saturate(310%) hue-rotate(180deg) brightness(103%) contrast(85%);
-	width: 28px;
+  filter: invert(99%) sepia(70%) saturate(310%) hue-rotate(180deg) brightness(103%) contrast(85%);
+  width: 28px;
   height: 28px;
 }
 
 .walletButton:hover .invert {
-	filter: none;
+  filter: none;
 }
 
 .closeButton {
-	display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   top: 18px;
   right: 18px;
-	width: 38px;
-	height: 38px;
-	line-height: inherit;
+  width: 38px;
+  height: 38px;
+  line-height: inherit;
   padding: 12px;
   cursor: pointer;
-  background: var(--swv-modal-close-button-background-color);
-  color: var(--swv-modal-close-button-text-color);
+  background: rgba(0, 0, 0, 0.1);
+  color: rgb(15, 20, 25);
   border: none;
   border-radius: 50%;
 }
 
 .closeButton svg {
-	margin-top: 1.1em;
-	filter: invert(99%) sepia(70%) saturate(310%) hue-rotate(180deg) brightness(103%) contrast(85%);
+  margin-top: 1.1em;
+  filter: invert(99%) sepia(70%) saturate(310%) hue-rotate(180deg) brightness(103%) contrast(85%);
 }

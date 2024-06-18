@@ -68,8 +68,9 @@ const App = () => {
     <div id="app">
       <div id="content">
         <aside>
-          <Navigation />
+          <div style={{display:'flex', justifyContent:'center', paddingTop:'2rem'}}>AoTweet</div>
           <WalletSelectButton setIsConnected={() => setIsWalletConnected(true)}/>
+          <Navigation />
           <ProfileButton isWalletConnected={isWalletConnected} />
         </aside>
         <main>
@@ -85,10 +86,6 @@ const App = () => {
             <Route path="/topics" element={<Topics />}>
               <Route path="/topics/" element={<TopicSearch />} />
               <Route path=":topic" element={<TopicResults />} />
-            </Route>
-            <Route path="/users" element={<Users />}>
-              <Route path="/users/" element={<UserSearch />} />
-              <Route path=":addr" element={<UserResults />} />
             </Route>
           </Routes>
         </main>
@@ -113,7 +110,7 @@ const Home = (props) => {
 const Topics = (props) => {
   return (
     <>
-      <header>Topics</header>
+      <header>Tags</header>
       <Outlet />
     </>
   );
