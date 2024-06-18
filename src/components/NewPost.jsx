@@ -125,7 +125,7 @@ export const NewPost = (props) => {
   } else {
     return (
       <div className="newPost-darkRow" onClick={props.connectWallet}>
-        Connect your wallet to start posting...
+        Connect your wallet to start posting
       </div>
     );
   }

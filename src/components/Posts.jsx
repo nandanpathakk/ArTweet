@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { maxMessageLength, abbreviateAddress, getPostTime } from '../lib/api';
 
@@ -25,19 +25,25 @@ const PostItem = (props) => {
       setOwnerHandle(info.handle);
     }
   }
-  getAccountInfo();
 
-  const [postMessage, setPostMessage] = React.useState("");
-  const [statusMessage, setStatusMessage] = React.useState("");
-  const [ownerName, setOwnerName] = React.useState("");
-  const [ownerHandle, setOwnerHandle] = React.useState("");
-  const [imgSrc, setImgSrc] = React.useState(props.postInfo.imgSrc || 'img_avatar.png');
-  const [upvotes, setUpvotes] = React.useState(props.postInfo.upvotes || 0);
-  const [downvotes, setDownvotes] = React.useState(props.postInfo.downvotes || 0);
-  const [isUpvoted, setIsUpvoted] = React.useState(false);
-  const [isDownvoted, setIsDownvoted] = React.useState(false);
+  useEffect(() => {
+    getAccountInfo();
+  }, []);
 
-  React.useEffect(() => {
+  const [postMessage, setPostMessage] = useState("");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [ownerName, setOwnerName] = useState("");
+  const [ownerHandle, setOwnerHandle] = useState("");
+  const [imgSrc, setImgSrc] = useState(props.postInfo.imgSrc || 'img_avatar.png');
+  const [upvotes, setUpvotes] = useState(props.postInfo.upvotes || 0);
+  const [downvotes, setDownvotes] = useState(props.postInfo.downvotes || 0);
+  const [isUpvoted, setIsUpvoted] = useState(false);
+  const [isDownvoted, setIsDownvoted] = useState(false);
+  const [showReply, setShowReply] = useState(false);
+  const [replyText, setReplyText] = useState("");
+  const [replies, setReplies] = useState([]);
+
+  useEffect(() => {
     let newPostMessage = "";
     let newStatus = "";
 
@@ -116,6 +122,24 @@ const PostItem = (props) => {
     }
   };
 
+  const handleReply = () => {
+    const newReply = {
+      user: "You", // You can replace it with the actual user data
+      text: replyText,
+      time: new Date().toLocaleString() // You can adjust it based on your needs
+    };
+    setReplies([...replies, newReply]);
+    setReplyText("");
+  };
+
+  const handleReplyChange = (event) => {
+    setReplyText(event.target.value);
+  };
+
+  const toggleReply = () => {
+    setShowReply(!showReply);
+  };
+
   return (
     <div className="postItem">
       <div className="postLayout">
@@ -129,7 +153,7 @@ const PostItem = (props) => {
             <span className="gray"> <span className="handle">{ownerHandle}</span></span>
           </div>
           <div className="postRow">
-            {props.postInfo.message || postMessage}
+            {props.postInfo.message ||  postMessage}
             {statusMessage && <div className="status"> {statusMessage}</div>}
             {renderTopic(props.postInfo.topic)}
           </div>
@@ -143,6 +167,25 @@ const PostItem = (props) => {
                 <span className="voteIcon">&#9660;</span> Downvote
               </button>
               <span className="voteCount">{downvotes}</span>
+            </div>
+            <div className="replySection">
+              <button onClick={toggleReply}>Reply</button>
+              {showReply && (
+                <div className="replyForm">
+                  <input type="text" value={replyText} onChange={handleReplyChange} placeholder="Write a reply..." />
+                  <button onClick={handleReply}>Submit</button>
+                </div>
+              )}
+              <div className="replies">
+                <h4>Replies:</h4>
+                {replies.map((reply, index) => (
+                  <div key={index} className="reply">
+                    <p className="replyUser">{reply.user}:</p>
+                    <p className="replyText">{reply.text}</p>
+                    <p className="replyTime">{reply.time}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
